@@ -8,7 +8,7 @@ virtual_hosts:
   default: "{{ branch }}.boilerplate-drupal8-composer.dev.key-tec.de"
 
 ## The git checkout repository.
-git_repository_path: git@github.com:andock/boilerplate-drupal8-composer.git
+git_repository_path: https://github.com/andock/boilerplate-drupal8-composer.git
 
 ## Mounts describe writeable persistent volumnes in the docker container.
 ## Mounts are linked via volumnes: into the docker container.
