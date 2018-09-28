@@ -1,0 +1,5 @@
+- name: composer install
+  command: "fin exec -T composer install"
+  args:
+    chdir: "{{ build_path }}"
+
