@@ -25,6 +25,7 @@ SITEDIR_PATH="${DOCROOT_PATH}/sites/${SITE_DIRECTORY}"
 # Install site
 site_install ()
 {
+
 	cd $DOCROOT_PATH
 
 	# We disable email sending here so site-install does not return an error
@@ -36,6 +37,8 @@ site_install ()
 #-------------------------- END: Functions --------------------------------
 
 #-------------------------- Execution --------------------------------
+echo "Waiting 10s for MySQL to initialize...";
+sleep 10
 
 # Project initialization steps
 time site_install

@@ -1,3 +1,19 @@
+- name: fin ps
+  shell: "fin ps"
+  args:
+    chdir: "{{ docroot_path }}"
+  register: debug
+
+- name: debug
+  debug:
+    msg: "{{docroot_path}}"
+
+- name: drush
+  command: "fin drush sql-create --debug -y "
+  args:
+    chdir: "{{ docroot_path }}"
+
+
 - name: Init andock environment
   command: "fin init-andock"
   args:
