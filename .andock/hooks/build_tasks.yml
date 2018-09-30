@@ -1,5 +1,5 @@
 - name: composer install
-  command: "fin rc composer install"
+  command: "fin rc -T   \"php -d memory_limit=128M; composer install\""
   args:
     chdir: "{{ build_path }}"
 
