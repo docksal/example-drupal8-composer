@@ -17,7 +17,7 @@ virtual_hosts:
 git_repository_path: https://github.com/andock/boilerplate-drupal8-composer.git
 
 ## Mounts describe writeable persistent volumes in the docker container.
-## Mounts are linked via volumnes: into the docker container.
+## Mounts are linked via volumes: into the docker container.
 mounts:
   files:
     path: 'web/sites/default/files'
