@@ -112,8 +112,8 @@ assert_options(ASSERT_ACTIVE, TRUE);
 # Docker DB connection settings.
 $databases['default']['default'] = array (
   'database' => 'drupal_demo',
-  'username' => 'root',
-  'password' => 'root',
+  'username' => 'user',
+  'password' => 'user',
   'host' => 'db',
   'driver' => 'mysql',
 );

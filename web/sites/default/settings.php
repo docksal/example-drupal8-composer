@@ -271,7 +271,7 @@ $config_directories = array();
  *   service requires the install profile use the 'install_profile' container
  *   parameter. Functional code can use \Drupal::installProfile().
  */
-$settings['install_profile'] = 'standard';
+$settings['install_profile'] = 'demo_umami';
 /**
  * Salt for one-time login links, cancel links, form tokens, etc.
  *
@@ -744,16 +744,6 @@ $settings['file_scan_ignore_directories'] = [
 ];
 
 /**
- * Load andock override configuration, if available.
- *
- * Use settings.andock.php to override variables inside andock.
- *
- */
-if (file_exists(__DIR__ . '/settings.andock.php') && getenv('ANDOCK') == 1) {
-  include __DIR__ . '/settings.andock.php';
-}
-
-/**
  * Load local development override configuration, if available.
  *
  * Use settings.local.php to override variables on secondary (staging,
@@ -764,7 +754,6 @@ if (file_exists(__DIR__ . '/settings.andock.php') && getenv('ANDOCK') == 1) {
  * Keep this code block at the end of this file to take full effect.
  */
 #
-
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
    include $app_root . '/' . $site_path . '/settings.local.php';
 }
