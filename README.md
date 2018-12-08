@@ -1,32 +1,33 @@
-# Docksal powered Drupal 8 With Composer Installation
-
-This is a sample Drupal 8 with Composer installation pre-configured for use with Docksal.
+# Production ready Andock Drupal 8 project
+This is a sample project containing all configuration to run a drupal site in production.
 
 Features:
+* with composer build process
+* letsencrypt
+* drush support
+* varnish
+* mail 
+* Forward http to https
 
-- Drupal 8 Composer Project
-- `fin init` [example](.docksal/commands/init)
-- Using the [default](.docksal/docksal.env#L9) Docksal LAMP stack with [image version pinning](.docksal/docksal.env#L13-L15)
-- PHP and MySQL settings overrides [examples](.docksal/etc)
 
 ## Setup instructions
 
-### Step #1: Docksal environment setup
+### Step #1: Andock environment setup
 
-**This is a one time setup - skip this if you already have a working Docksal environment.**
+**This is a one time setup - skip this if you already have a working andock environment.**
 
-Follow [Docksal environment setup instructions](https://docs.docksal.io/en/master/getting-started/env-setup)
+Follow [Andock setup instructions](https://andock.readthedocs.io/en/latest/getting-started/docksal/)
 
 ### Step #2: Project setup
 
 1. Clone this repo into your Projects directory
 
     ```
-    git clone https://github.com/docksal/example-drupal8-composer.git drupal8
-    cd drupal8
+    git clone https://github.com/andock/demo-drupal.git
+    cd demo-drupal
     ```
 
-2. Initialize the site
+2. Initialize the site local
 
     This will initialize local settings and install the site via drush
 
@@ -34,27 +35,19 @@ Follow [Docksal environment setup instructions](https://docs.docksal.io/en/maste
     fin init
     ```
 
-3. Point your browser to
+3. Check .andock/connections/default and .andock/andock.yml 
+
+4. Build and deploy the site
 
     ```
-    http://drupal8.docksal
+    fin andock build && fin andock deploy
     ```
 
-When the automated install is complete the command line output will display the admin username and password.
+5. Point your browser to
 
-
-## More automation with 'fin init'
-
-Site provisioning can be automated using `fin init`, which calls the shell script in [.docksal/commands/init](.docksal/commands/init).
-This script is meant to be modified per project. The one in this repo will give you a good starting example.
-
-Some common tasks that can be handled by the init script (an other [custom commands](https://docs.docksal.io/en/master/fin/custom-commands/)):
-
-- initialize local settings files for Docker Compose, Drupal, Behat, etc.
-- import DB or perform a site install
-- compile Sass
-- run DB updates, revert features, clear caches, etc.
-- enable/disable modules, update variables values
+    ```
+    http://www.branch.YOURDOMAIN.com
+    ```
 
 
 ## Security notice
