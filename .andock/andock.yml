@@ -9,7 +9,9 @@ virtual_hosts:
   default:
     virtual_host: "{{ branch }}.demo-drupal.dev.andock.ci"
     container: web
-
+  varnish:
+    virtual_host: "www.{{ branch }}.demo-drupal.dev.andock.ci"
+    container: varnish
 ## The git checkout repository.
 git_repository_path: https://github.com/andock/boilerplate-drupal8-composer.git
 
