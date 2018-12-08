@@ -30,11 +30,11 @@ site_install ()
 
 	# We disable email sending here so site-install does not return an error
 	if [[ "$BRANCH" == "master" ]]; then
-	    echo-green "Create site"
+	    echo "Create site"
 	    drush sql-create -y
     	php -d sendmail_path=/bin/true /usr/local/bin/drush site-install standard -y --site-name='My Drupal 8 Site'
 	else
-	    echo-green "Create site from demo-drupal.master"
+	    echo "Create site from demo-drupal.master"
 	    drush sql-sync @demo-drupal.master @self -y
 	fi
 
