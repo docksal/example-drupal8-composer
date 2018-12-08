@@ -29,7 +29,7 @@ site_install ()
 	cd $DOCROOT_PATH
 
 	# We disable email sending here so site-install does not return an error
-	if [[ $BRANCH = "master"]] then
+	if [[ "$BRANCH" == "master" ]] then
 	    echo-green "Create site"
 	    drush sql-create -y
     	php -d sendmail_path=/bin/true /usr/local/bin/drush site-install -y --site-name='My Drupal 8 Site'
