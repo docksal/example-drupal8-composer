@@ -1,5 +1,5 @@
 - name: Init andock environment
-  command: "fin init-andock"
+  command: "fin init-andock {{branch}}"
   args:
     chdir: "{{ docroot_path }}"
 
