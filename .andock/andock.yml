@@ -1,0 +1,33 @@
+# andock.yml (version: 0.0.9)
+
+## The name of this project, which must be unique within a andock server.
+project_name: "boilerplate-drupal8-composer"
+project_id: "mp4yqom"
+
+## The virtual host configuration pattern.
+virtual_hosts:
+  default:
+    virtual_host: "[{{ branch }}.composer.dev.andock.ci"
+    container: web
+
+## The git checkout repository.
+git_repository_path: git@github.com:andock/boilerplate-drupal8-composer.git
+
+## Mounts describe writeable persistent volumnes in the docker container.
+## Mounts are linked via volumnes: into the docker container.
+mounts:
+  files:
+    path: 'web/sites/default/files'
+
+## Let's encrypt.
+## Uncomment to enable let's encrypt certificate generation.
+letsencrypt_enable: true
+
+## ansible build hooks.
+## The hooks that will be triggered when the environment is builded/initialized/updated.
+hook_build_tasks: "{{project_path}}/.andock/hooks/build_tasks.yml"
+hook_init_tasks: "{{project_path}}/.andock/hooks/init_tasks.yml"
+hook_update_tasks: "{{project_path}}/.andock/hooks/update_tasks.yml"
+hook_test_tasks: "{{project_path}}/.andock/hooks/test_tasks.yml"
+
+

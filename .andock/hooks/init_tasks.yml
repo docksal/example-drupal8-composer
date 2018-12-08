@@ -1,0 +1,5 @@
+- name: Init andock environment
+  command: "fin init-andock"
+  args:
+    chdir: "{{ docroot_path }}"
+
