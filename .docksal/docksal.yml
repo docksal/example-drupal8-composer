@@ -8,6 +8,7 @@ services:
       service: web
     depends_on:
       - cli
+
   # Varnish
   varnish:
     extends:
@@ -39,9 +40,3 @@ services:
       - GIT_USER_NAME
       - HOST_UID
       - HOST_GID
-
-  # MailHog
-  mail:
-    extends:
-      file: ${HOME}/.docksal/stacks/services.yml
-      service: mail

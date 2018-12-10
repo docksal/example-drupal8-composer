@@ -32,7 +32,7 @@ site_install ()
 	if [[ "$BRANCH" == "master" ]]; then
 	    echo "Create site"
 	    drush sql-create -y
-    	php -d sendmail_path=/bin/true /usr/local/bin/drush site-install standard -y --site-name='My Drupal 8 Site'
+    	php -d sendmail_path=/bin/true /usr/local/bin/drush site-install demo_umami -y --site-name='My Drupal 8 Site'
 	else
 	    echo "Create site from demo-drupal.master"
 	    drush sql-sync @demo-drupal.master @self -y
