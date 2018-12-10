@@ -95,6 +95,10 @@ AddEncoding gzip svgz
   # downloaded.
   RewriteRule "/\.|^\.(?!well-known/)" - [F]
 
+  # Redirect aliases in non-ssl to the same alias on ssl, except for /.well-known/acme-challenge/ URIs
+  RewriteCond %{REQUEST_URI} "!/.well-known/acme-challenge/"
+  RewriteRule ^/*(.*)$ https://%{HTTP_HOST}/$1 [NE,L,R=301]
+
   # If your site can be accessed both with and without the 'www.' prefix, you
   # can use one of the following settings to redirect users to your preferred
   # URL, either WITH or WITHOUT the 'www.' prefix. Choose ONLY one option:
