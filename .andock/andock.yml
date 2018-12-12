@@ -7,7 +7,7 @@ project_id: "mp4yqom"
 ## The virtual host configuration pattern.
 virtual_hosts:
   default:
-    virtual_host: "{{ branch }}.demo-drupal.dev.andock.ci"
+    virtual_host: "bb.{{ branch }}.demo-drupal.dev.andock.ci"
     container: web
   varnish:
     virtual_host: "www.{{ branch }}.demo-drupal.dev.andock.ci"
