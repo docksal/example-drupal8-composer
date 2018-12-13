@@ -7,10 +7,10 @@ project_id: "mp4yqom"
 ## The virtual host configuration pattern.
 virtual_hosts:
   default:
-    virtual_host: "{{ branch }}.demo-drupal.dev.andock.ci"
+    virtual_host: "{{ branch }}{{ random_test_suffix|default('') }}.demo-drupal.dev.andock.ci"
     container: web
   varnish:
-    virtual_host: "www.{{ branch }}.demo-drupal.dev.andock.ci"
+    virtual_host: "www.{{ branch }}{{ random_test_suffix|default('') }}.demo-drupal.dev.andock.ci"
     container: varnish
 
 ## The git checkout repository.

@@ -35,7 +35,9 @@ site_install ()
     	php -d sendmail_path=/bin/true /usr/local/bin/drush site-install demo_umami -y --site-name='My Drupal 8 Site'
 	else
 	    echo "Create site from demo-drupal.master"
-	    drush sql-sync @demo-drupal.master @self -y
+	    # There is a bug drush sql-sync in drush 8.1.17
+	    # @see https://github.com/drush-ops/drush/issues/3725
+	    drush sql-sync --local @demo-drupal.master @self -y
 	fi
 
 }
