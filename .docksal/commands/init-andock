@@ -37,7 +37,7 @@ site_install ()
 	    echo "Create site from demo-drupal.master"
 	    # There is a bug drush sql-sync in drush 8.1.17
 	    # @see https://github.com/drush-ops/drush/issues/3725
-	    drush sql-sync --local @demo-drupal.master @self -y
+	    drush --local sql-sync @demo-drupal.master @self -y
 	fi
 
 }
