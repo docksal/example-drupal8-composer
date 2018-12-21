@@ -95,9 +95,33 @@ AddEncoding gzip svgz
   # downloaded.
   RewriteRule "/\.|^\.(?!well-known/)" - [F]
 
-  # Redirect aliases in non-ssl to the same alias on ssl, except for /.well-known/acme-challenge/ URIs
+  #
+  # Rewrite http(s)://example.com to https://www.example.com
+  #
+  RewriteCond "%{HTTP_HOST}" "!^www\." [NC]
+  RewriteCond "%{HTTP_HOST}" "!^$"
+  RewriteCond %{ENV:ANDOCK} 1
   RewriteCond %{REQUEST_URI} "!/.well-known/acme-challenge/"
-  RewriteRule ^/*(.*)$ https://%{HTTP_HOST}/$1 [NE,L,R=301]
+  RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  #
+  # Rewrite http://www.example.com to https://www.example.com
+  #
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteCond %{ENV:ANDOCK} 1
+  RewriteCond %{REQUEST_URI} "!/.well-known/acme-challenge/"
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  #
+  # Rewrite https://example.com to https://www.example.com
+  #
+  RewriteCond %{HTTPS} on
+  RewriteCond %{HTTP:X-Forwarded-Proto} https
+  RewriteCond "%{HTTP_HOST}" "!^www\." [NC]
+  RewriteCond %{ENV:ANDOCK} 1
+  RewriteCond %{REQUEST_URI} "!/.well-known/acme-challenge/"
+  RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   # If your site can be accessed both with and without the 'www.' prefix, you
   # can use one of the following settings to redirect users to your preferred
