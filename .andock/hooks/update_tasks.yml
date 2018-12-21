@@ -1,1 +1,14 @@
----
+- name: drush cr
+  command: "fin drush cr"
+  args:
+    chdir: "{{ docroot_path }}"
+
+- name: drush updb
+  command: "fin drush updb --entity-updates -y"
+  args:
+    chdir: "{{ docroot_path }}"
+
+- name: drush cim
+  command: "fin drush cim -y"
+  args:
+    chdir: "{{ docroot_path }}"
