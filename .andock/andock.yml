@@ -3,7 +3,7 @@
 ## The name of this project, which must be unique within a andock server.
 project_name: "demo-drupal"
 project_id: "mp4yqom"
-random_test_suffix: "-aa"
+
 ## The virtual host configuration pattern.
 virtual_hosts:
   default:
@@ -25,6 +25,8 @@ mounts:
 ## Let's encrypt.
 ## Uncomment to enable let's encrypt certificate generation.
 letsencrypt_enable: true
+## Uncomment for production letsencrypt certificates.
+letsencrypt_acme_directory: "{{ letsencrypt_acme_directory_staging }}"
 
 ## ansible build hooks.
 ## The hooks that will be triggered when the environment is builded/initialized/updated.
