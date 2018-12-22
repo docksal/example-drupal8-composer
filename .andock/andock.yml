@@ -3,7 +3,7 @@
 ## The name of this project, which must be unique within a andock server.
 project_name: "demo-drupal"
 project_id: "mp4yqom"
-random_test_suffix: "AA"
+random_test_suffix: "-aa"
 ## The virtual host configuration pattern.
 virtual_hosts:
   default:
