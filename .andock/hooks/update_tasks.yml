@@ -8,7 +8,7 @@
   args:
     chdir: "{{ docroot_path }}"
 
-- name: drush cim
-  command: "fin drush cim -y"
-  args:
-    chdir: "{{ docroot_path }}"
+#- name: drush cim
+#  command: "fin drush cim -y"
+#  args:
+#    chdir: "{{ docroot_path }}"
