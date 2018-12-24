@@ -11,7 +11,9 @@ install:
   - fin sysinfo
 
 before_script:
-  - fin init
+  - fin andock enable
+  - fin andock connect "defalult" "YOUR-DOMAIN.com"
 
-script:
-  - fin test
+# Uncomment to build and deploy
+#script:
+# - fin andock build && fin andock deploy
