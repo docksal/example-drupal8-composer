@@ -3,10 +3,10 @@ This is a sample project based on [boilerplate-drupal8-composer](https://github.
 
 Features:
 * composer build process
+* Default andock init script
 * letsencrypt
-* drush support
-* mail 
-* Htaccess configured forwards from http to https://www
+* Configured varnish
+* Redirects from http to https (htaccess)
 
 
 ## Setup instructions
