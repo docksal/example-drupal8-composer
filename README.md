@@ -1,13 +1,12 @@
 # Production ready Andock Drupal 8 project
-This is a sample project containing all configuration to run a drupal site in production.
+This is a sample project based on [boilerplate-drupal8-composer](https://github.com/docksal/boilerplate-drupal8-composer) containing all configuration to run a docksal site in production.
 
 Features:
-* with composer build process
+* composer build process
 * letsencrypt
 * drush support
-* varnish
 * mail 
-* Forward http to https
+* Htaccess configured forwards from http to https://www
 
 
 ## Setup instructions
@@ -17,6 +16,7 @@ Features:
 **This is a one time setup - skip this if you already have a working andock environment.**
 
 Follow [Andock setup instructions](https://andock.readthedocs.io/en/latest/getting-started/docksal/)
+
 
 ### Step #2: Project setup
 
@@ -35,7 +35,11 @@ Follow [Andock setup instructions](https://andock.readthedocs.io/en/latest/getti
     fin init
     ```
 
-3. Check .andock/connections/default and .andock/andock.yml 
+3. Configure connection
+    ```
+    fin andock connect
+    ```
+ 
 
 4. Build and deploy the site
 
